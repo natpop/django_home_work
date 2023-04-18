@@ -20,9 +20,10 @@ items = [
 
 
 def home(request):
-    return HttpResponse('''
-        <h1>Привет, изучаем django</h1>
-    ''')
+    return render(request, "index.html", {
+        'name': 'Petrov ivan',
+        'mail': 'petrov@mail.ru'
+    })
 
 def about(request):
     res = f'''
@@ -39,16 +40,16 @@ def get_item(request, id):
     for item in items:
         
         if item['id'] == id:
-            return HttpResponse(item['name'])
+            res = f"""
+                <h2>Имя: {item['name']}</h2>
+                <a href='/items'>Назад</a>
+            """
+            return HttpResponse(res)
     return HttpResponse('Товар не найден')
 
-
-
 def items_list(request):
-    res = '<h2>Список товаров</h2>'
-    for item in items:
-        res += f'<li>{item["name"]}</li>'
-    
-    res += '</ol>'
-    return HttpResponse(res)
+
+    return render(request, "items_list.html", {
+        "items": items
+    })
 
