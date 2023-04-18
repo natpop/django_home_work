@@ -21,7 +21,7 @@ items = [
 
 def home(request):
     return HttpResponse('''
-        <h1>Привет111</h1>
+        <h1>Привет, изучаем django</h1>
     ''')
 
 def about(request):
@@ -42,10 +42,12 @@ def get_item(request, id):
             return HttpResponse(item['name'])
     return HttpResponse('Товар не найден')
 
+
+
 def items_list(request):
     res = '<h2>Список товаров</h2>'
     for item in items:
-        res += f'<li>P{item["name"]}</li>'
+        res += f'<li>{item["name"]}</li>'
     
     res += '</ol>'
     return HttpResponse(res)
