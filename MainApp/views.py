@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from . models import Item
 
 autor = {
     "name": "Иван",
@@ -18,7 +19,7 @@ items = [
    {"id": 5, "name": "Кепка" ,"quantity":124},
 ]
 
-
+items_bd = Item.objects.all()
 
 def home(request):
     return render(request, "index.html", {
@@ -37,8 +38,8 @@ def about(request):
     })
 
 def get_item(request, id):
-    for item in items:
-        if item['id'] == id:
+    for item in items_bd:
+        if item.id == id:
             return render(request, "item.html", {
                     "item": item,
                 })
@@ -46,8 +47,8 @@ def get_item(request, id):
     return HttpResponse('Товар не найден')
 
 def items_list(request):
-
+    
     return render(request, "items_list.html", {
-        "items": items
+        "items_bd": items_bd
     })
 

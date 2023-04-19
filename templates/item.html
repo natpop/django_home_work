@@ -11,11 +11,7 @@
         <a href="/about">about</a>
     </nav>
     <h1>Товар: {{ item.name }}</h1>
-    {% if item.quantity > 0 %}
-        <h2>Колличество: {{ item.quantity }}</h2>
-    {% else %}
-        <h2>Внастоящее время товар отсутствует</h2>
-    {% endif %}
+    <div> Колличество: {{ item.count | default:"Товар отсутствует" }}</div>
     <a href="/items">Назад</a>
     
 </body>
