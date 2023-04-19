@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+{% include 'header.html' %}
     <h1>Товар: {{ item.name }}</h1>
     <div> Колличество: {{ item.count | default:"Товар отсутствует" }}</div>
     <a href="/items">Назад</a>
