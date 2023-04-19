@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-    <nav>
-        <a href="/">Главная</a>
-        <a href="/items">Список товаров</a>
-        <a href="/about">about</a>
-    </nav>
+{% extends 'base.html' %}
+
+{% block title %}
+{{ item.name }}
+{% endblock %}
+{% block content %}
     <div>Студент
         <div>Фалилия: {{ sur }}</div>
         <div>Имя: {{ name }}</div>
         <div>Отяество: {{ midd }}</div>
         <div>Email: {{ email }}</div>
     </div>
-    
-</body>
-</html>
+{% endblock %}

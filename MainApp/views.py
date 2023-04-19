@@ -24,8 +24,8 @@ items_bd = Item.objects.all()
 def home(request):
     return render(request, "index.html", {
         'name': 'Petrov ivan',
-        'mail': 'petrov@mail.ru'
-        
+        'mail': 'petrov@mail.ru',
+        "title": "Главная страница",        
     })
 
 def about(request):
@@ -38,17 +38,16 @@ def about(request):
     })
 
 def get_item(request, id):
-    for item in items_bd:
-        if item.id == id:
-            return render(request, "item.html", {
-                    "item": item,
-                })
-
-    return HttpResponse('Товар не найден')
+        item = Item.objects.get(id=id)
+                
+        return render(request, "item.html", {
+                "item": item,
+            })
 
 def items_list(request):
     
     return render(request, "items_list.html", {
-        "items_bd": items_bd
+        "items_bd": items_bd,
+        "title": "Список товаров",
     })
 

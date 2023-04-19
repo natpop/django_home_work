@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Домашняя страница</title>
-</head>
-<body>
-    <nav>
-        <a href="/">Главная</a>
-        <a href="items">Список товаров</a>
-        <a href="about">about</a>
-    </nav>
+{% extends 'base.html' %}
+
+{% block title %}
+{{ item.name }}
+{% endblock %}
+{% block content %}
     <h1>Приветствую</h1>
     это главная страница сайта<br>
     <i>Эта страница пока в разработке</i><br>
 
     Сайт разработал {{ name }} мой емаил {{ mail }} 
-</body>
-</html>
+{% endblock %}
