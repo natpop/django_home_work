@@ -3,6 +3,13 @@
 {% block title %}
 {{ title }}
 {% endblock %}
+
+{% block style %}
+    {# подставляем содержимое блока родительского шаблона #}
+    {{ block.super }}
+    {# добавляем уникальную css для данной страницы #}
+{% endblock %}
+
 {% block content %}
 {% include 'header.html' %}
     <div>Студент
