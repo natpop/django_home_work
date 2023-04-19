@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
-
 {% block title %}
 {{ item.name }}
 {% endblock %}
+
 {% block content %}
-    <ol>
+        <div>
         {% for item in items_bd %}
-            <li><a href="/item/{{ item.id }}">{{ item.name }}</a></li>
+            <div class="carts">
+                <div class="cart">
+                    <a href="/item/{{ item.id }}">{{ item.name }}</a>
+                </div>
+                <div class="cart">{{ item.desc }}</div>
+            </div>
         {% endfor %}
-    </ol>
+        </div>
 {% endblock %}
