@@ -34,10 +34,12 @@ def about(request):
         "sur": "Попов",
         "name": "Никита",
         "midd": "Евгеньевич",
-        "email": "popov@mail.ru"
+        "email": "popov@mail.ru",
+        "title": "About"
     })
 
 def get_item(request, id):
+        
         item = Item.objects.get(id=id)
                 
         return render(request, "item.html", {

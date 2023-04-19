@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}
-{{ item.name }}
+{{ title }}
+{% endblock %}
+
+{% block style %}
+
 {% endblock %}
 
 {% block content %}
@@ -9,7 +13,7 @@
         {% for item in items_bd %}
             <div class="carts">
                 <div class="cart">
-                    <a href="/item/{{ item.id }}">{{ item.name }}</a>
+                    <a href="{% url 'get_item' item.id %}">{{ item.name }}</a>
                 </div>
                 <div class="cart">{{ item.desc }}</div>
             </div>
