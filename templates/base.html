@@ -5,12 +5,54 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     {% block style %}
-        {# Это общая css для всех страниц #}
-        <link rel="stylesheet" href="style.css">
-        {# Но каждая страница может содержать доп.уникальные css #}
     {% endblock %}
 </head>
+<style>
+    .top-menu {
+  position: relative; 
+  background: #fff;
+  box-shadow: inset 0 0 10px #ccc;
+}
+.menu-main {
+  list-style: none;
+  padding: 0 30px;
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+}
 
+.menu-main a {
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 5px;
+  padding: 6px 15px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  color: #777777;
+  border-bottom: 1px solid transparent;
+  transition: .3s linear;
+}
+
+
+.carts {
+  display: inline-flex; 
+  width: 150px; 
+  height: 150px;
+  border: 1px;
+  margin: 15px;
+  margin-top: 50px;
+  padding: 10px;
+  flex-direction: column;
+  border: 4px double black; /* Параметры границы */
+  background: rgb(171, 219, 238); /* Цвет фона */
+
+}
+.cart {
+    margin: 10px;
+}
+
+</style>
 <body>
     {% block content %}{% endblock %}
 </body>
